@@ -1,3 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useFetchUsers } from '@/composables/useFetchUsers'
 
-<template>This is a the homeview</template>
+// onMounted(() => {
+//   data.value = useFetchUsers()
+// })
+</script>
+
+<template>
+  <div class="wrapper w-screen h-screen flex justify-center items-center">
+    This is where content goes {{}}
+  </div>
+</template>
