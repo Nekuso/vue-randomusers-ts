@@ -1,14 +1,23 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useFetchUsers } from '@/composables/useFetchUsers'
+import { ref, onMounted, watch } from 'vue'
+import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
-// onMounted(() => {
-//   data.value = useFetchUsers()
-// })
+const inputPrompt = ref<number>(10)
+
+function submitPrompt() {
+  Users.value = []
+  useFetchUsers(inputPrompt.value)
+}
+
+// watch(inputPrompt, () => {
+//   useFetchUsers(inputPrompt.value)
+// }, {deep: true})
+
+onMounted(() => {
+  useFetchUsers()
+})
 </script>
 
 <template>
-  <div class="wrapper w-screen h-screen flex justify-center items-center">
-    This is where content goes {{}}
-  </div>
+  <div class="content w-full flex justify-between bg-indigo-400">something</div>
 </template>
