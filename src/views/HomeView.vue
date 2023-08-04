@@ -1,23 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { useFetchUsers, Users } from '@/composables/use-fetch-users'
+import HeaderActions from '@/components/header-actions.vue'
 
-const inputPrompt = ref<number>(10)
-
-function submitPrompt() {
-  Users.value = []
-  useFetchUsers(inputPrompt.value)
-}
-
-// watch(inputPrompt, () => {
-//   useFetchUsers(inputPrompt.value)
-// }, {deep: true})
 
 onMounted(() => {
-  useFetchUsers()
+  // useFetchUsers()
 })
 </script>
 
 <template>
-  <div class="content w-full flex justify-between bg-indigo-400">something</div>
+  <main class="content w-full flex justify-between flex-col ">
+    <HeaderActions />
+  </main>
 </template>
+
+<style scoped></style>

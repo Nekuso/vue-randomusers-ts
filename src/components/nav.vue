@@ -5,7 +5,7 @@ import { RouterLink } from 'vue-router'
 <template>
   <div class="content w-full py-7 flex justify-between">
     <RouterLink to="/" class="flex items-center">
-      <h3 class="text-4xl font-semibold">Generator</h3>
+      <h1 class="text-4xl font-bold">Generator</h1>
     </RouterLink>
   </div>
 </template>
