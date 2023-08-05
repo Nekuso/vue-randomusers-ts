@@ -2,64 +2,54 @@
 import { ref, watch } from 'vue'
 import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
-const amountInput = ref<number>(10)
+const amountInput = ref<number>(6)
 const genderInput = ref<string>('all')
-
-// watch(
-//   genderInput,
-//   () => {
-//     console.log(genderInput)
-//     //   useFetchUsers(amountInput.value)
-//   },
-//   { deep: true }
-// )
 
 function submitPrompt() {
   Users.value = []
   useFetchUsers(amountInput.value)
 }
-
 </script>
 
 <template>
   <div class="w-full flex justify-between place-items-center">
-    <h2 class="text-2xl font-semibold">Users</h2>
+    <h2 class="text-2xl font-semibold dark:text-slate-100 transition-colors duration-500">Users</h2>
 
     <div class="w-auto flex gap-2 place-items-center">
       <div
-        class="w-21 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden"
+        class="w-21 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden bg-white dark:text-slate-100 transition-colors duration-500 dark:border-slate-800 dark:bg-transparent"
       >
         <button
           @click="amountInput--"
-          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out"
+          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           -
         </button>
         <input
           label="Number of users"
           v-model="amountInput"
-          class="w-12 text-center focus:outline-none"
+          class="w-12 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500"
           type="number"
         />
         <button
           @click="amountInput++"
-          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out"
+          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           +
         </button>
       </div>
-      <!-- Select all, male, female -->
       <select
         v-model="genderInput"
-        class="w-30 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer focus"
+        class="w-30 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white focus dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900"
       >
         <option class="text-center" value="all" selected>All</option>
         <option class="text-center" value="male">Male</option>
         <option class="text-center" value="female">Female</option>
       </select>
+
       <button
         @click="submitPrompt"
-        class="submitBtn w-36 h-10 shadow-lg rounded-3xl bg-black text-white flex justify-center place-items-center gap-2"
+        class="submitBtn w-36 h-10 shadow-lg rounded-3xl bg-black text-white flex justify-center place-items-center gap-2 dark:bg-gray-700"
       >
         <svg
           fill="#FFFFFF"
@@ -80,7 +70,6 @@ function submitPrompt() {
 
 <style scoped>
 .submitBtn {
-  background-color: black;
   transition: all 0.3s ease-in-out;
 }
 
