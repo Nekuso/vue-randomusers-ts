@@ -24,7 +24,7 @@ function submitPrompt() {
   <div class="w-full flex justify-between place-items-center">
     <h2 class="text-2xl font-semibold">Users</h2>
 
-    <div class="w-auto flex gap-2">
+    <div class="w-auto flex gap-2 place-items-center">
       <div
         class="w-21 h-9 border rounded-3xl flex justify-center place-items-center overflow-hidden"
       >
@@ -50,7 +50,7 @@ function submitPrompt() {
       <!-- Select all, male, female -->
       <select
         v-model="genderInput"
-        class="w-30 h-9 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center"
+        class="w-30 h-9 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer focus"
       >
         <option class="text-center" value="all" selected>All</option>
         <option class="text-center" value="male">Male</option>
@@ -58,9 +58,9 @@ function submitPrompt() {
       </select>
       <button
         @click="submitPrompt"
-        class="w-28 h-9 shadow-lg rounded-3xl bg-black hover:bg-gray-600 transition duration-300 ease-in-out text-white"
+        class="w-28 h-10 shadow-lg rounded-3xl bg-black hover:bg-gray-600 transition duration-300 ease-in-out text-white"
       >
-        Submit
+        Generate
       </button>
     </div>
   </div>
