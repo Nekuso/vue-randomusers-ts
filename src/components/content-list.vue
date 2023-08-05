@@ -4,7 +4,11 @@ import { Users } from '@/composables/use-fetch-users'
 
 <template>
   <div class="w-full">
-    {{Users}}
+    <ul>
+      <li v-for="item in Users" key="item.email">
+        {{ item.name }}
+      </li>
+    </ul>
   </div>
 </template>
 

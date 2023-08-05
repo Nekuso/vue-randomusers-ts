@@ -4,7 +4,7 @@ import ContentList from '@/components/content-list.vue'
 </script>
 
 <template>
-  <main class="content w-full flex justify-between flex-col">
+  <main class="content w-full flex justify-between flex-col gap-3">
     <ContentHeader />
     <ContentList />
   </main>
