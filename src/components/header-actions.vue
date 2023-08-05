@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
 const amountInput = ref<number>(10)
 const genderInput = ref<string>('all')
 
-// watch(inputPrompt, () => {
-//   useFetchUsers(inputPrompt.value)
-// }, {deep: true})
+watch(
+  genderInput,
+  () => {
+    console.log(genderInput)
+    //   useFetchUsers(amountInput.value)
+  },
+  { deep: true }
+)
 
 function submitPrompt() {
   Users.value = []
@@ -45,8 +50,12 @@ function submitPrompt() {
       <!-- Select all, male, female -->
       <select
         v-model="genderInput"
-        class="w-21 h-9 border rounded-3xl flex justify-center place-items-center overflow-hidden"
-      ></select>
+        class="w-30 h-9 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center"
+      >
+        <option class="text-center" value="all" selected>All</option>
+        <option class="text-center" value="male">Male</option>
+        <option class="text-center" value="female">Female</option>
+      </select>
       <button
         @click="submitPrompt"
         class="w-28 h-9 shadow-lg rounded-3xl bg-black hover:bg-gray-600 transition duration-300 ease-in-out text-white"
