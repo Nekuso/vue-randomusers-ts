@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Users } from '@/composables/use-fetch-users'
+</script>
 
 <template>
-  <div class="w-full h-full bg-gray-600"></div>
+  <div class="w-full">
+    {{Users}}
+  </div>
 </template>
 
 <styles scoped>

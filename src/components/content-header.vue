@@ -5,19 +5,20 @@ import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 const amountInput = ref<number>(10)
 const genderInput = ref<string>('all')
 
-watch(
-  genderInput,
-  () => {
-    console.log(genderInput)
-    //   useFetchUsers(amountInput.value)
-  },
-  { deep: true }
-)
+// watch(
+//   genderInput,
+//   () => {
+//     console.log(genderInput)
+//     //   useFetchUsers(amountInput.value)
+//   },
+//   { deep: true }
+// )
 
 function submitPrompt() {
   Users.value = []
   useFetchUsers(amountInput.value)
 }
+
 </script>
 
 <template>

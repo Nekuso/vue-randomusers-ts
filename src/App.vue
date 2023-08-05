@@ -4,8 +4,8 @@ import Nav from '@/components/nav.vue'
 </script>
 
 <template>
-  <div class="w-screen h-screen flex justify-center">
-    <div class="w-3/5 flex flex-col gap-5">
+  <div class="w-full h-screen flex justify-center">
+    <div class="max-w-3xl flex flex-col gap-5 w-full">
       <Nav></Nav>
       <RouterView />
     </div>
