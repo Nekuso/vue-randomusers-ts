@@ -6,7 +6,7 @@ import { useFetchUsers } from '@/composables/use-fetch-users'
 import { onMounted } from 'vue'
 import { handlePagination } from '@/composables/use-pagination'
 
-const { currentPage, pages, paginatedUsers, nextPage, prevPage } = handlePagination()
+const { currentPage, pages, paginatedUsers, nextPage, prevPage, setCurrentPage, displayPages } = handlePagination()
 
 onMounted(() => {
   useFetchUsers(7)
@@ -24,6 +24,8 @@ onMounted(() => {
       :pages="pages"
       :nextPage="nextPage"
       :prevPage="prevPage"
+      :setCurrentPage="setCurrentPage"
+      :displayPages="displayPages"
     />
   </main>
 </template>

@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 defineProps({
   currentPage: {
     type: Number,
     required: true
   },
+  setCurrentPage: {
+    type: Function,
+    required: true
+  },
   pages: {
     type: Number,
+    required: true
+  },
+  displayPages: {
+    type: Array,
     required: true
   },
   nextPage: {
@@ -25,7 +31,7 @@ defineProps({
   <ul class="flex justify-center items-center w-auto h-10 text-base">
     <li>
       <button
-        @click="prevPage"
+        @click="prevPage()"
         class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
         <span class="sr-only">Previous</span>
@@ -46,18 +52,22 @@ defineProps({
         </svg>
       </button>
     </li>
-    <li v-for="page in pages" :key="page">
+    <li v-for="page in displayPages">
       <button
-        @click="currentPage = page"
+        @click="setCurrentPage(page)"
         class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        :class="{ 'bg-gray-100 text-gray-700': currentPage === page }"
+        :class="
+          currentPage === page
+            ? 'bg-gray-300 font-bold text-gray-700 dark:bg-gray-700 dark:text-white'
+            : ''
+        "
       >
         {{ page }}
       </button>
     </li>
     <li>
       <button
-        @click="nextPage"
+        @click="nextPage()"
         class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
       >
         <span class="sr-only">Next</span>
