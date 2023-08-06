@@ -2,12 +2,12 @@
 import { ref, watch } from 'vue'
 import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
-const amountInput = ref<number>(6)
+const amountInput = ref<number>(7)
 const genderInput = ref<string>('all')
 
 function submitPrompt() {
   Users.value = []
-  useFetchUsers(amountInput.value)
+  useFetchUsers(amountInput.value, genderInput.value)
 }
 </script>
 
@@ -28,7 +28,7 @@ function submitPrompt() {
         <input
           label="Number of users"
           v-model="amountInput"
-          class="w-12 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500"
+          class="w-12 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
           type="number"
         />
         <button
@@ -40,11 +40,11 @@ function submitPrompt() {
       </div>
       <select
         v-model="genderInput"
-        class="w-30 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white focus dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900"
+        class="w-30 h-10 border border-slate-200 rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white focus dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900 focus:ring-0 focus:outline-none"
       >
-        <option class="text-center" value="all" selected>All</option>
-        <option class="text-center" value="male">Male</option>
-        <option class="text-center" value="female">Female</option>
+        <option value="all" selected>All</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
       </select>
 
       <button
