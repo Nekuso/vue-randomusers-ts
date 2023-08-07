@@ -7,7 +7,7 @@ import DarkModeButton from '@/components/dark-mode-button.vue'
   <div class="content w-full pt-9 flex justify-between">
     <RouterLink to="/" class="flex items-center">
       <h1 class="text-4xl font-bold dark:text-slate-100 transition-colors duration-500">
-        Generator
+        RU Generator
       </h1>
     </RouterLink>
 
