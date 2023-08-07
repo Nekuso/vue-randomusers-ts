@@ -11,9 +11,10 @@ defineProps({
 
 <template>
   <tr
+    @click="$router.push({ name: 'user' })"
     v-for="user in paginatedUsers"
     :key="user.email"
-    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-500"
+    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-500 cursor-pointer"
   >
     <th
       scope="row"

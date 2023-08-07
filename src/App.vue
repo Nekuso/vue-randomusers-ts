@@ -6,7 +6,7 @@ import { isDarkMode } from './composables/user-dark-mode'
 
 <template>
   <div
-    class="w-full h-screen flex justify-center bg-slate-100  transition-colors duration-500"
+    class="w-full h-screen flex justify-center bg-slate-100 transition-colors duration-500"
     :class="{ dark: isDarkMode, 'bg-slate-900': isDarkMode }"
   >
     <div class="max-w-5xl flex flex-col gap-5 w-full">

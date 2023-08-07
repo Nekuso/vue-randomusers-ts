@@ -30,7 +30,7 @@ export function handlePagination(usersPerPage: number = 7) {
   const displayPages = computed(() => {
     const currentPageIndex: number = currentPage.value
     const totalPages: number = pages.value
-    const adjacentPagesCount: number = 1 // Number of adjacent pages to show on each side (1 previous and 1 next)
+    const adjacentPagesCount: number = 2
 
     const startPage: number = Math.max(1, currentPageIndex - adjacentPagesCount)
     const endPage: number = Math.min(totalPages, currentPageIndex + adjacentPagesCount)

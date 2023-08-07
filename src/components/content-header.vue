@@ -21,7 +21,7 @@ function submitPrompt() {
       >
         <button
           @click="amountInput--"
-          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out dark:hover:bg-slate-600"
+          class="px-6 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           -
         </button>
@@ -33,14 +33,14 @@ function submitPrompt() {
         />
         <button
           @click="amountInput++"
-          class="px-6 h-full hover:bg-black hover:text-white transition duration-300 ease-in-out dark:hover:bg-slate-600"
+          class="px-6 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           +
         </button>
       </div>
       <select
         v-model="genderInput"
-        class="w-30 h-10 border border-slate-200 rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white focus dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900 focus:ring-0 focus:outline-none"
+        class="w-30 h-10 border border-slate-200 rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900 focus:ring-0 focus:outline-none "
       >
         <option value="all" selected>All</option>
         <option value="male">Male</option>
