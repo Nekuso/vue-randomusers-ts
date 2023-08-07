@@ -4,16 +4,17 @@ import type { PropType } from 'vue'
 defineProps({
   paginatedUsers: {
     type: Array as PropType<User[]>,
-    required: true
+    required: true,
+    inheritAttrs: false
   }
 })
 </script>
 
 <template>
   <tr
-    @click="$router.push({ name: 'user' })"
-    v-for="user in paginatedUsers"
-    :key="user.email"
+    v-for="(user, index) in paginatedUsers"
+    :key="index"
+    @click="$router.push({ name: 'user', params: { id: user.login.username } })"
     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-500 cursor-pointer"
   >
     <th

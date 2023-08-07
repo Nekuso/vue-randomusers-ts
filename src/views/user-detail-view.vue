@@ -1,3 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useFetch } from '@/composables/use-fetch'
+import { useRoute } from 'vue-router'
 
-<template>This is a profile page</template>
+const route = useRoute()
+const { fetchedUser } = useFetch(`${route.params.id}`)
+</script>
+
+<template>This is a profile page {{ fetchedUser }}</template>
