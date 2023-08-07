@@ -22,16 +22,33 @@ const { fetchedUser } = useFetch(`${route.params.id}`)
       />
     </div>
     <!-- User Info -->
-    <div class="w-full h-[200px] mx-4">
+    <div class="w-full h-[200px] mx-4 flex flex-col gap-9">
       <div class="w-full flex flex-col">
-        <h1 class="flex place-items-center gap-1 text-4xl font-bold text-black dark:text-white transition-colors duration-500">
+        <h1
+          class="flex place-items-center gap-1 text-2xl font-bold text-black dark:text-white transition-colors duration-500 leading-3"
+        >
           {{ fetchedUser.name.first }} {{ fetchedUser.name.last }}
-          <i class="bx bxs-badge-check text-teal-400 text-[2.2rem]"></i>
+          <i class="bx bxs-badge-check text-teal-400 text-[1.8rem]"></i>
         </h1>
         <h4
-          class="text-lg font-semibold text-slate-500 dark:text-white transition-colors duration-500"
+          class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
         >
           @{{ fetchedUser.login.username }}
+        </h4>
+      </div>
+      <div class="w-full flex flex-col gap-1">
+        <h4
+          class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
+        >
+          <i class="bx bxs-buildings"></i>
+          {{ fetchedUser.location.city }}, {{ fetchedUser.location.country }}
+        </h4>
+        <h4
+          class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
+        >
+          <i class="bx bx-street-view"></i>
+          {{ fetchedUser.location.street.name }}
+          {{ fetchedUser.location.street.number }}
         </h4>
       </div>
     </div>
