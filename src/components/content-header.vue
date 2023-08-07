@@ -21,19 +21,19 @@ function submitPrompt() {
       >
         <button
           @click="amountInput--"
-          class="px-6 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
+          class="px-5 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           -
         </button>
         <input
           label="Number of users"
           v-model="amountInput"
-          class="w-12 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
+          class="w-16 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
           type="number"
         />
         <button
           @click="amountInput++"
-          class="px-6 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
+          class="px-5 h-full hover:bg-black hover:text-white transition-colors duration-300 ease-in-out dark:hover:bg-slate-600"
         >
           +
         </button>
