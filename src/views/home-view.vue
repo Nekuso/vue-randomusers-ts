@@ -13,7 +13,7 @@ const { currentPage, pages, paginatedUsers, nextPage, prevPage, setCurrentPage, 
 </script>
 
 <template>
-  <main class="content w-full flex justify-between flex-col gap-3">
+  <main class="content content w-full flex justify-between flex-col gap-3">
     <ContentHeader />
     <ContentList :paginatedUsers="paginatedUsers" />
     <ContentPagination
@@ -27,4 +27,19 @@ const { currentPage, pages, paginatedUsers, nextPage, prevPage, setCurrentPage, 
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.content {
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
