@@ -2,7 +2,6 @@
 import { useFetch } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
-import router from '@/router'
 
 const route = useRoute()
 const { fetchedUser } = useFetch(`${route.params.id}`)
