@@ -2,6 +2,12 @@
 import { RouterView } from 'vue-router'
 import Nav from '@/components/nav.vue'
 import { isDarkMode } from './composables/user-dark-mode'
+import { useFetchUsers } from './composables/use-fetch-users'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  useFetchUsers(7)
+})
 </script>
 
 <template>

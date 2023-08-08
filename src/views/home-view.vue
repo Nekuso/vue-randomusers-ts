@@ -6,19 +6,16 @@ import { useFetchUsers } from '@/composables/use-fetch-users'
 import { onMounted } from 'vue'
 import { handlePagination } from '@/composables/use-pagination'
 
-const { currentPage, pages, paginatedUsers, nextPage, prevPage, setCurrentPage, displayPages } = handlePagination()
+const { currentPage, pages, paginatedUsers, nextPage, prevPage, setCurrentPage, displayPages } =
+  handlePagination()
 
-onMounted(() => {
-  useFetchUsers(7)
-})
+// onMount only once)
 </script>
 
 <template>
   <main class="content w-full flex justify-between flex-col gap-3">
     <ContentHeader />
-    <ContentList
-      :paginatedUsers="paginatedUsers"
-    />
+    <ContentList :paginatedUsers="paginatedUsers" />
     <ContentPagination
       :currentPage="currentPage"
       :pages="pages"
