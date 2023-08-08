@@ -26,7 +26,7 @@ function submitPrompt() {
           -
         </button>
         <input
-          title="Number of users"
+          title ="Number of users"
           v-model="amountInput"
           class="w-16 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
           type="number"
