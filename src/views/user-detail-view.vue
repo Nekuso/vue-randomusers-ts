@@ -2,9 +2,12 @@
 import { useFetch } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
+import router from '@/router'
 
 const route = useRoute()
 const { fetchedUser } = useFetch(`${route.params.id}`)
+
+console.log(fetchedUser)
 </script>
 
 <template>
@@ -25,7 +28,7 @@ const { fetchedUser } = useFetch(`${route.params.id}`)
       <img
         class="absolute w-40 h-40 rounded-full -bottom-1/3 left-3 border-4 border-white dark:border-slate-800 transition-colors duration-500"
         :src="fetchedUser.picture.large"
-        alt="user-profile"
+        alt="fetchedUser-profile"
       />
       <div class="flex absolute bottom-3 right-3">
         <a
@@ -82,7 +85,7 @@ const { fetchedUser } = useFetch(`${route.params.id}`)
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
           >
             <i class="bx" :class="[fetchedUser.gender == 'male' ? 'bx-male' : 'bx-female']"></i>
-            {{ fetchedUser.gender }} • {{ fetchedUser.dob.age }} years old
+            {{ fetchedUser.gender[0].toUpperCase() + fetchedUser.gender.slice(1) }} • {{ fetchedUser.dob.age }} years old
           </h4>
           <h4
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
