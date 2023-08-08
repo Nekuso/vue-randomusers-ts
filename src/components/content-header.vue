@@ -13,7 +13,7 @@ function submitPrompt() {
 
 <template>
   <div class="w-full flex justify-between place-items-center">
-    <h2 class="text-2xl font-semibold dark:text-slate-100 transition-colors duration-500">Users</h2>
+    <h2 class="text-xl font-semibold dark:text-slate-100 transition-colors duration-500">Users</h2>
 
     <div class="w-auto flex gap-2 place-items-center">
       <div
