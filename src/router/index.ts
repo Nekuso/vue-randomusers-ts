@@ -24,6 +24,7 @@ const router = createRouter({
     },
     {
       path: '/:notFound',
+      name: Routes.NOT_FOUND,
       component: NotFound
     }
   ]
