@@ -5,7 +5,6 @@ import { handlePagination } from './use-pagination'
 export const Users = ref<User[]>([])
 export const usersPerPage = ref<number>(7)
 
-
 export const useFetchUsers = (amount: number = 7, gender: string = 'all', pagePerUser?: number) => {
   const fetchUsers = async () => {
     const response: any = await fetch(
@@ -19,5 +18,4 @@ export const useFetchUsers = (amount: number = 7, gender: string = 'all', pagePe
   usersPerPage.value = pagePerUser || 7
   fetchUsers()
   handlePagination()
-
 }
