@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
 const amountInput = ref<number>(7)
