@@ -4,10 +4,11 @@ import { useFetchUsers, Users } from '@/composables/use-fetch-users'
 
 const amountInput = ref<number>(7)
 const genderInput = ref<string>('all')
+const pageInput = ref<number>(7)
 
 function submitPrompt() {
   Users.value = []
-  useFetchUsers(amountInput.value, genderInput.value)
+  useFetchUsers(amountInput.value, genderInput.value, pageInput.value)
 }
 </script>
 
@@ -26,7 +27,7 @@ function submitPrompt() {
           -
         </button>
         <input
-          title ="Number of users"
+          title="Number of users"
           v-model="amountInput"
           class="w-16 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
           type="number"
@@ -39,14 +40,24 @@ function submitPrompt() {
         </button>
       </div>
       <select
+        title="Select a gender"
         v-model="genderInput"
-        class="w-30 h-10 border border-slate-200 rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900 focus:ring-0 focus:outline-none "
+        class="w-30 h-10 border border-slate-200 rounded-3xl flex justify-center place-items-center overflow-hidden px-7 appearance-none custom-select-arrow text-center cursor-pointer bg-white dark:border-slate-800 dark:text-slate-100 transition-colors duration-500 dark:bg-slate-900 focus:ring-0 focus:outline-none"
       >
         <option value="all" selected>All</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
-
+      <div
+        class="w-21 h-10 border rounded-3xl flex justify-center place-items-center overflow-hidden bg-white dark:text-slate-100 transition-colors duration-500 dark:border-slate-800 dark:bg-transparent"
+      >
+        <input
+          title="Users per page"
+          v-model="pageInput"
+          class="w-16 text-center focus:outline-none bg-transparent dark:text-slate-100 transition-colors duration-500 border-none focus:ring-0"
+          type="number"
+        />
+      </div>
       <button
         @click="submitPrompt"
         class="submitBtn w-36 h-10 shadow-lg rounded-3xl bg-black text-white flex justify-center place-items-center gap-2 dark:bg-gray-700"

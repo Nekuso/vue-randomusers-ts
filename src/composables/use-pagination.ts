@@ -1,13 +1,14 @@
 import { ref, computed } from 'vue'
 import { Users } from '@/composables/use-fetch-users'
 import type { User } from '@/types/user'
+import { usersPerPage } from '@/composables/use-fetch-users'
 
-export function handlePagination(usersPerPage: number = 7) {
+export function handlePagination() {
   const currentPage = ref<number>(1)
-  const pages = computed(() => Math.ceil(Users.value.length / usersPerPage))
+  const pages = computed(() => Math.ceil(Users.value.length / usersPerPage.value))
   const paginatedUsers = computed<User[]>(() => {
-    const start = (currentPage.value - 1) * usersPerPage
-    const end = currentPage.value * usersPerPage
+    const start = (currentPage.value - 1) * usersPerPage.value
+    const end = currentPage.value * usersPerPage.value
     return Users.value.slice(start, end)
   })
 
