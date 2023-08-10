@@ -1,12 +1,33 @@
 <script setup lang="ts">
-import { useFetch } from '@/composables/use-fetch'
+import { useFetchUser } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
+import { computed } from 'vue'
 
 const route = useRoute()
-const { fetchedUser } = useFetch(`${route.params.id}`)
+const { fetchedUser } = useFetchUser(`${route.params.id}`)
 
-console.log(fetchedUser)
+const fullName = computed(() => {
+  return `${fetchedUser.name.first} ${fetchedUser.name.last}`
+})
+
+const genderAge = computed(() => {
+  return `${
+    fetchedUser.gender[0].toUpperCase() +
+    fetchedUser.gender.slice(1) +
+    ' • ' +
+    fetchedUser.dob.age +
+    ' years old'
+  }`
+})
+
+const location = computed(() => {
+  return `${fetchedUser.location.city}, ${fetchedUser.location.country}`
+})
+
+const street = computed(() => {
+  return `${fetchedUser.location.street.number} ${fetchedUser.location.street.name}`
+})
 </script>
 
 <template>
@@ -59,7 +80,7 @@ console.log(fetchedUser)
           <h1
             class="flex place-items-center gap-1 text-2xl font-bold text-black dark:text-white transition-colors duration-500 leading-3"
           >
-            {{ fetchedUser.name.first }} {{ fetchedUser.name.last }}
+            {{ fullName }}
             <i class="bx bxs-badge-check text-teal-400 text-[1.8rem]"></i>
           </h1>
           <h4
@@ -84,7 +105,7 @@ console.log(fetchedUser)
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
           >
             <i class="bx" :class="[fetchedUser.gender == 'male' ? 'bx-male' : 'bx-female']"></i>
-            {{ fetchedUser.gender[0].toUpperCase() + fetchedUser.gender.slice(1) }} • {{ fetchedUser.dob.age }} years old
+            {{ genderAge }}
           </h4>
           <h4
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
@@ -104,14 +125,13 @@ console.log(fetchedUser)
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
           >
             <i class="bx bxs-buildings"></i>
-            {{ fetchedUser.location.city }}, {{ fetchedUser.location.country }}
+            {{ location }}
           </h4>
           <h4
             class="text-base font-semibold text-slate-500 dark:text-slate-400 transition-colors duration-500 leading-5"
           >
             <i class="bx bxs-map-pin"></i>
-            {{ fetchedUser.location.street.name }}
-            {{ fetchedUser.location.street.number }}
+            {{ street }}
           </h4>
         </div>
       </div>

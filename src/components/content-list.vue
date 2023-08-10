@@ -26,10 +26,11 @@ defineProps({
               <th scope="col" class="px-6 py-3 w-[65%]">Name</th>
               <th scope="col" class="px-6 py-3">Location</th>
               <th scope="col" class="px-6 py-3">Gender</th>
+              <!-- <th scope="col" class="px-6 py-3">Action</th> -->
             </tr>
           </thead>
           <tbody>
-            <ContentListItem :paginatedUsers="paginatedUsers" />
+            <ContentListItem v-for="(user, index) in paginatedUsers" :key="index" :user="user" />
           </tbody>
         </table>
       </div>

@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
-import { Users } from '@/composables/use-fetch-users'
+import { Users } from '@/storage/users-storage'
 import type { User } from '@/types/user'
-import { usersPerPage } from '@/composables/use-fetch-users'
+import { usersPerPage } from '@/storage/users-storage'
 
 export function handlePagination() {
   const currentPage = ref<number>(1)

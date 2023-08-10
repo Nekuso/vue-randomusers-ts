@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { User } from '@/types/user'
 import type { PropType } from 'vue'
+import { Routes } from '@/constants/route-names'
 defineProps({
-  paginatedUsers: {
-    type: Array as PropType<User[]>,
+  user: {
+    type: Object as PropType<User>,
     required: true,
     inheritAttrs: false
   }
@@ -12,9 +14,7 @@ defineProps({
 
 <template>
   <tr
-    v-for="(user, index) in paginatedUsers"
-    :key="index"
-    @click="$router.push({ name: 'user', params: { id: user.login.username } })"
+    @click="$router.push({ name: Routes.USER, params: { id: user.login.username } })"
     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-500 cursor-pointer"
   >
     <th

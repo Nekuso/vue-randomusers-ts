@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useFetchUsers, Users } from '@/composables/use-fetch-users'
+import { useFetchUsers } from '@/composables/use-fetch-users'
+import { Users } from '@/storage/users-storage'
 
 const amountInput = ref<number>(7)
 const genderInput = ref<string>('all')
