@@ -3,6 +3,7 @@ import { useFetchUser } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
 import { computed } from 'vue'
+import { Routes } from '@/constants/route-names'
 
 const route = useRoute()
 const { fetchedUser } = useFetchUser(`${route.params.id}`)

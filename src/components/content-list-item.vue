@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { User } from '@/types/user'
 import type { PropType } from 'vue'
 import { Routes } from '@/constants/route-names'
