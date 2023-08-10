@@ -6,7 +6,7 @@ import { Routes } from '@/constants/route-names'
 
 <template>
   <nav class="content w-full pt-9 flex justify-between">
-    <RouterLink :to="Routes.USERS" class="flex items-center">
+    <RouterLink to="/" class="flex items-center">
       <h1 class="text-4xl font-bold dark:text-slate-100 transition-colors duration-500">Nekuso</h1>
     </RouterLink>
     <DarkModeButton class="scale-75" />

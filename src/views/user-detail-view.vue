@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useFetchUser } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
-import { RouterLink } from 'vue-router'
 import { computed } from 'vue'
-import { Routes } from '@/constants/route-names'
+import router from '@/router'
+import { onMounted } from 'vue'
 
 const route = useRoute()
+
 const { fetchedUser } = useFetchUser(`${route.params.id}`)
 
 const fullName = computed(() => {
@@ -42,13 +43,13 @@ const street = computed(() => {
       <div
         class="absolute cursor-pointer flex items-center justify-center w-7 h-7 rounded-full top-2 left-2 bg-white hover:scale-105 transition duration-500"
       >
-        <RouterLink to="/">
+        <button @click="router.go(-1)">
           <i class="bx bx-chevron-left text-2xl text-cyan-700 dark:text-slate-600"></i>
-        </RouterLink>
+        </button>
       </div>
       <img
         class="absolute w-40 h-40 rounded-full -bottom-1/3 left-3 border-4 border-white dark:border-slate-800 transition-colors duration-500"
-        :src="fetchedUser.picture.large"
+        :src="fetchedUser.picture.large ? fetchedUser.picture.large : ''"
         alt="fetchedUser-profile"
       />
       <div class="flex absolute bottom-3 right-3">

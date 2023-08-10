@@ -9,18 +9,16 @@ export const fetchApi = () => {
     pagePerUser: number = 7
   ) => {
     try {
-        const response: any = await fetch(`${url}?${params.toString()}`)
-        const { results } = await response.json()
-        Users.value = results
-        console.log(`${url}?${params.toString()}`)
-    
-        usersPerPage.value = pagePerUser || 7
-        handlePagination()
-    }
-    catch (error) {
-        console.error(error)
-    }
+      const response: any = await fetch(`${url}?${params.toString()}`)
+      const { results } = await response.json()
+      Users.value = results
+      console.log(`${url}?${params.toString()}`)
 
+      usersPerPage.value = pagePerUser || 7
+      handlePagination()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return { get }
