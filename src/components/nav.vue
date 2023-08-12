@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import DarkModeButton from '@/components/dark-mode-button.vue'
 import { RouterLink } from 'vue-router'
-import { Routes } from '@/constants/route-names'
 </script>
 
 <template>

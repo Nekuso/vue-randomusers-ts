@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import type { User } from '@/types/user'
 import type { PropType } from 'vue'
+import { computed } from 'vue'
 import { Routes } from '@/constants/route-names'
-defineProps({
+
+const props = defineProps({
   user: {
     type: Object as PropType<User>,
     required: true,
-    inheritAttrs: false
+    inheritAttrs: true
   }
+
+})
+
+const gender = computed(() => {
+  return props.user.gender[0].toUpperCase() + props.user.gender.slice(1)
 })
 </script>
 
@@ -29,7 +36,7 @@ defineProps({
     <td class="px-6 py-4">{{ user.location.country }}</td>
     <td class="px-6 py-4">
       <div class="flex items-center">
-        {{ user.gender[0].toUpperCase() + user.gender.slice(1) }}
+        {{ gender }}
       </div>
     </td>
   </tr>
