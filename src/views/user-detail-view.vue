@@ -3,7 +3,6 @@ import { useFetchUser } from '@/composables/use-fetch'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import router from '@/router'
-import { onMounted } from 'vue'
 
 const route = useRoute()
 

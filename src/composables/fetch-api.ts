@@ -5,7 +5,7 @@ import { handlePagination } from './use-pagination'
 export const fetchApi = () => {
   const get = async (
     url: string = 'https://randomuser.me/api/',
-    params: any,
+    params: URLSearchParams,
     pagePerUser: number = 7
   ) => {
     try {

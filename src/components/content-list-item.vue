@@ -1,19 +1,30 @@
 <script setup lang="ts">
 import type { User } from '@/types/user'
 import type { PropType } from 'vue'
+import { computed } from 'vue'
 import { Routes } from '@/constants/route-names'
-defineProps({
+import router from '@/router'
+
+const props = defineProps({
   user: {
     type: Object as PropType<User>,
     required: true,
-    inheritAttrs: false
+    inheritAttrs: true
   }
 })
+
+const gender = computed(() => {
+  return props.user.gender[0].toUpperCase() + props.user.gender.slice(1)
+})
+
+function viewUser() {
+  router.push({ name: Routes.USER, params: { id: props.user.login.username } })
+}
 </script>
 
 <template>
   <tr
-    @click="$router.push({ name: Routes.USER, params: { id: user.login.username } })"
+    @click="viewUser()"
     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-500 cursor-pointer"
   >
     <th
@@ -29,7 +40,7 @@ defineProps({
     <td class="px-6 py-4">{{ user.location.country }}</td>
     <td class="px-6 py-4">
       <div class="flex items-center">
-        {{ user.gender[0].toUpperCase() + user.gender.slice(1) }}
+        {{ gender }}
       </div>
     </td>
   </tr>
